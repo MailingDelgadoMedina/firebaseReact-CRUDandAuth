@@ -1,4 +1,4 @@
-#React Firebase Blog App (CRUD and AUTH)
+# React Firebase Blog App (CRUD and AUTH)
 
 ## Getting Started with Create React App
 
