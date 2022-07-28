@@ -1,0 +1,23 @@
+{
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "typescript": "typescriptreact"
+    },
+    "emmet.preferences": {
+        "emmet.triggerExpansionOnTab": true,
+
+    },
+    "emmet.syntaxProfiles": {
+        "html": {
+            "filters": "bem",
+            "attr_quotes": "single"
+
+        },
+        "jsx": {
+            "self_closing_tag": true
+        }
+    },
+    "diffEditor.wordWrap": "on",
+    "editor.wordWrap": "on",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+}
