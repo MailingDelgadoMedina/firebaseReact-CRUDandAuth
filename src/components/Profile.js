@@ -33,8 +33,8 @@ function Profile() {
     }
   }, [currentUser]);
 
-  const user = auth.currentUser;
   const deleteU = (e) => {
+    const user = auth.currentUser;
     e.preventDefault();
     deleteUser(user)
       .then(() => {
@@ -46,15 +46,22 @@ function Profile() {
   };
 
   return (
-    <div className="container">
+    <>
       <Navbar />
 
-      <input type="file" onChange={handleChange} />
+      <div className="container">
+        <img src={photoURL} alt="Avatar" className="avatar" />
+        <h1>{currentUser?.displayName}</h1>
+        <h3>{currentUser?.email}</h3>
+      </div>
+      <div className="form">
+        <input type="file" onChange={handleChange} />
 
-      <button disabled={loading} onClick={handleClick}>
-        Upload
-      </button>
-    </div>
+        <button disabled={loading} onClick={handleClick}>
+          Upload
+        </button>
+      </div>
+    </>
   );
 }
 

@@ -12,6 +12,8 @@ import {
 import { useAuthState } from "react-firebase-hooks/auth";
 import Blog from "./pages/Blog";
 import Navbar from "./components/Navbar";
+import Profile from "./components/Profile";
+import Footer from "./components/Footer";
 
 function App() {
   const [user, loading, error] = useAuthState(auth); //hook #1 check if my user is logged render the information
@@ -103,7 +105,7 @@ function App() {
         )}
         {user && <img src={user?.photoURL} alt="Avatar" className="avatar" />}
 
-        <p>{myMessage}</p>
+        {/* <p>{myMessage}</p> */}
 
         {/* <input type="checkbox" onChange={handleChange}  /> */}
 
@@ -128,8 +130,10 @@ function App() {
       </div>
 
       <hr />
+      <div />
+      <div className="blog"> {user && <Blog />}</div>
 
-      {user && <Blog />}
+      <Footer />
     </div>
   );
 }
