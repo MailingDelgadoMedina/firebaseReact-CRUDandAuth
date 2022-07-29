@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 //import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from "../firebase";
-import { useAuth, upload } from "../firebase";
+
+import { auth, useAuth, upload } from "../firebase";
 import { deleteUser } from "firebase/auth";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function Profile() {
   const currentUser = useAuth();
@@ -34,10 +35,12 @@ function Profile() {
   }, [currentUser]);
 
   const deleteU = (e) => {
-    const user = auth.currentUser;
     e.preventDefault();
+    const user = auth.currentUser;
+
     deleteUser(user)
       .then(() => {
+        window.location.reload();
         console.log("User deleted");
       })
       .catch((error) => {
@@ -60,7 +63,11 @@ function Profile() {
         <button disabled={loading} onClick={handleClick}>
           Upload
         </button>
+
+        <button onClick={deleteU}>Delete</button>
       </div>
+
+      <Footer />
     </>
   );
 }

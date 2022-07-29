@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { getFirestore } from "firebase/firestore";
 import { v4 } from "uuid";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -31,8 +32,8 @@ const provider = new GoogleAuthProvider(app);
 const auth = getAuth(app);
 const popUp = signInWithPopup();
 const storage = getStorage(app);
-
-export { provider, auth, popUp };
+const db = getFirestore(app);
+export { provider, auth, popUp, db };
 
 //custom Hook
 

@@ -10,7 +10,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Blog from "./pages/Blog";
+import Posts from "./pages/Posts";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
@@ -95,14 +95,6 @@ function App() {
       <div className="header">
         <h1>{user?.displayName}</h1>
 
-        {!user && (
-          <>
-            <img
-              className="avatar"
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-            />
-          </>
-        )}
         {user && <img src={user?.photoURL} alt="Avatar" className="avatar" />}
 
         {/* <p>{myMessage}</p> */}
@@ -131,8 +123,8 @@ function App() {
 
       <hr />
       <div />
-      <div className="blog"> {user && <Blog />}</div>
-
+      {/* <div className="blog"> {user && <Posts />}</div> */}
+      <Posts />
       <Footer />
     </div>
   );
